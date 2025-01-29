@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS TECHNOVA | Unleashing the Potential of Tomorrow</title>
+    <link href="{% static 'website/css/output.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Racing+Sans+One&family=Squada+One&display=swap"
+        rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="JS Technova">
+    <meta name="author" content="JS Technova">
+    <meta name="keywords"
+        content="js, jstechnova, js tech nova, tech, technova, lucknow, web development, app development, machine learning, web development, app development, website, application, androind, ai, Artificial Intelligence">
+    <link rel="icon" type="image/png" href="{% static 'website/media/LogoIcon.png' %}">
+    <script src="{% static 'website/js/main.js' %}"></script>
+</head>
+
+<body class="">
+    {% include 'website/components/header.html' %}
+    {% block content %}
+    {% endblock %}
+
+    <!-- <div class="fixed top-16 bottom-0 left-0 w-full grid place-content-end bg-black/20 z-20 p-4">
+        {% include 'website/components/popup.html' %}
+    </div> -->
+    {% include 'website/components/Alerts.html' %}
+    <div class="fixed right-2 bottom-2 z-20">
+        <div class="animate-ping size-2 absolute top-1 right-1 bg-red-600 rounded-full"></div>
+        <a href="https://wa.me/918874015355" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" aria-label="WhatsApp" role="img" viewBox="0 0 512 512"
+                class="size-10 md:size-12 rounded-full " fill="#000000">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <rect width="512" height="512" rx="15%" fill="#25d366"></rect>
+                    <path fill="#25d366" stroke="#ffffff" stroke-width="26" d="M123 393l14-65a138 138 0 1150 47z">
+                    </path>
+                    <path fill="#ffffff"
+                        d="M308 273c-3-2-6-3-9 1l-12 16c-3 2-5 3-9 1-15-8-36-17-54-47-1-4 1-6 3-8l9-14c2-2 1-4 0-6l-12-29c-3-8-6-7-9-7h-8c-2 0-6 1-10 5-22 22-13 53 3 73 3 4 23 40 66 59 32 14 39 12 48 10 11-1 22-10 27-19 1-3 6-16 2-18">
+                    </path>
+                </g>
+            </svg>
+        </a>
+    </div>
+
+    <div id="loader"
+        class="fixed flex-row gap-2 flex items-center justify-center z-50 top-0 left-0 h-full w-full bg-gradient-to-r to-purple-500 from-themeblue">
+        <div class="w-4 h-4 rounded-full bg-white animate-bounce"></div>
+        <div class="w-4 h-4 rounded-full bg-white animate-bounce [animation-delay:-.3s]"></div>
+        <div class="w-4 h-4 rounded-full bg-white animate-bounce [animation-delay:-.5s]"></div>
+    </div>
+
+
+    {% include "website/components/footer.html" %}
+</body>
+
+</html>

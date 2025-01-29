@@ -1,0 +1,232 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="container text-center my-8">
+    <div>
+        <p class="text-base tracking-[5px] text-themeblue opacity-60 font-medium">
+            Welcome to JS Technova
+        </p>
+        <h1 class="text-2xl font-inter font-semibold tracking-[1px] mt-1">Unleashing the Potential of Tomorrow</h1>
+    </div>
+
+    <div class="flex flex-col items-center md:flex-row gap-8 mt-8">
+        <div class="w-full md:w-6/12 lg:w-7/12 flex justify-center flex-col items-center md:items-start">
+            <h2 class="tracking-[2px] text-4xl text-center text-themeblue md:text-left font-inter">
+                Transforming Ideas into Exceptional<br class="hidden md:block" /> Web and App Solutions
+            </h2>
+            <p class="text-center md:text-left mt-8 leading-8">At JS Technova, we specialize in crafting stunning
+                websites and
+                innovative
+                applications tailored to
+                your unique needs. Our small yet talented team combines creativity and technical expertise to bring
+                your vision to life.</p>
+            <div class="mt-4 inline-flex flex-col md:flex-row gap-4">
+                <a href="#about">
+                    <button
+                        class="cursor-pointer hover:bg-themeblue hover:text-white transition-all duration-300 ease-in py-3 px-12 rounded-xl border border-themeblue text-themeblue ">About
+                        Us</button>
+                </a>
+                <A href="#services">
+                    <button
+                        class="cursor-pointer shadow-xl shadow-[#00000040] py-3 px-12 rounded-xl border hover:border-themeblue hover:bg-white hover:text-themeblue transition-all duration-300 ease-in border-black text-white bg-themeblue ">Our
+                        Services</button>
+                </A>
+            </div>
+        </div>
+        <div class="w-full md:w-6/12 lg:w-5/12">
+            <div class="">
+                <img src="{% static 'website/media/hero-image.png' %}"
+                    class="aspect-auto object-contain object-center" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<a name="about"></a>
+<div class="text-center container mt-12">
+    <p class="text-4xl tracking-[2px] text-themeblue ts-headings">
+        About Us
+    </p>
+    <h1 class="leading-[34px] mt-4">JS Technova, an innovative startup in Lucknow, Uttar Pradesh, specializes in AI
+        products
+        and tailored solutions for
+        education, finance, healthcare, and agriculture. We offer web and app development alongside AI-driven
+        services to help
+        businesses scale. Our data-driven solutions tackle real-world challenges, empowering clients with
+        cutting-edge,
+        future-ready technology.</h1>
+</div>
+
+<div class="lg:h-[600px] my-12">
+    <img src="{% static 'website/media/about-bg.png' %}" class="h-full w-full " />
+</div>
+
+<div class="text-center container">
+    <p class="text-4xl tracking-[2px] text-themeblue ts-headings">
+        Our Mission and Vission
+    </p>
+    <h1 class="leading-[34px] mt-4">JS Technova, an innovative startup in Lucknow, Uttar Pradesh, specializes in AI
+        At JS Technova, we empower businesses and individuals by creating innovative websites, apps, and AI products
+        using
+        advanced Machine Learning, Computer Vision, and Natural Language Processing. Our goal is to drive industry
+        transformation with solutions that enhance efficiency and tackle complex challenges, blending technology and
+        creativity
+        to shape a smarter, more connected future. Our vision at JS Technova is to pave the way for the current
+        generation to
+        create powerful websites, apps, and Artificial Intelligence systems that redefine industries and enhance
+        everyday life.</h1>
+</div>
+
+<div class="flex flex-col-reverse md:flex-row items-center mx-auto max-w-5xl my-20 px-4">
+    <div class="w-full md:w-1/2">
+        <img src="{% static 'website/media/robo.png' %}" class="aspect-auto m-auto" />
+    </div>
+    <div class="w-full md:w-1/2 bg-themeblue rounded-xl p-4 text-white text-center shadow-xl shadow-[#00000040]">
+        <p class="text-4xl font-semibold tracking-[1px] ts-headings">
+            Why Choose Us
+        </p>
+        <h1 class="leading-loose mt-8">JS Technova, an innovative startup in Lucknow, Uttar Pradesh, specializes in
+            AI
+            At JS Technova, we empower businesses and individuals by creating innovative websites, apps, and AI
+            products
+            using
+            advanced Machine Learning, Computer Vision, and Natural Language Processing. Our goal is to drive
+            industry
+            transformation with solutions that enhance efficiency and tackle complex challenges, blending technology
+            and
+            creativity
+            to shape a smarter, more connected future. Our vision at JS Technova is to pave the way for the current
+            generation to
+            create powerful websites, apps, and Artificial Intelligence systems that redefine industries and enhance
+            everyday life.</h1>
+    </div>
+</div>
+
+<div class="services rounded-[30px] md:rounded-[241px] overflow-hidden py-8">
+    <a name="services"></a>
+    <h1 class="text-center font-poppins text-2xl md:text-4xl font-semibold text-white ">Services Offered</h1>
+    <div class="responsive-grid-3cols justify-items-stretch gap-8 place my-12 w-full max-w-[80%] mx-auto">
+
+        {% for service in services %}
+        <div class="service-card">
+            <div class="image-container">
+                <img class="h-full aspect-square" src="{{service.image.url}}" alt="{{service.title}}" />
+            </div>
+            <div class="text-center">
+                <h4>{{service.title}}</h4>
+                <p>{{service.description}}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="mt-16">
+        <p class="font-poppins font-medium text-center tracking-wide text-2xl md:text-4xl">Transforming your vision
+            into
+            reality, we create websites that not only meet your needs but also inspire and engage your audience.
+        </p>
+        <div class="mt-12 text-center flex gap-8 items-center justify-center md:flex-row flex-col">
+            <div class="relative border sm:inline-block border-black rounded-xl overflow-hidden sm:w-52 h-32 sm:h-52">
+                <span class="absolute top-2 border border-white right-2 bg-black rounded-full h-4 w-4 z-10"></span>
+                <div
+                    class="flex sm:flex-col-reverse ms-auto rounded-s-xl sm:rounded-s-none p-4 bg-[#65459C] max-w-[80%] sm:h-[75%] h-full sm:max-w-none sm:rounded-b-xl items-center gap-4 ">
+                    <div
+                        class="h-20 w-20 relative -left-14 sm:-left-0 sm:top-14 rounded-full overflow-hidden border-[2px] border-white ring-1 shrink-0 ring-[#2B345F]">
+                        <img src="{% static 'website/media/customers.jpeg' %}"
+                            class="h-full w-full object-cover object-center border-[1.5px] rounded-full border-[#65459C]" />
+                    </div>
+                    <div class="sm:relative sm:top-10">
+                        <h1 class="text-lg font-bold text-white">
+                            15+ Happy <br class="hidden sm:block"> Customers
+                        </h1>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="relative border sm:inline-block border-black rounded-xl overflow-hidden sm:w-52 h-32 sm:h-52">
+                <span class="absolute top-2 border border-white right-2 bg-black rounded-full h-4 w-4 z-10"></span>
+                <div
+                    class="flex sm:flex-col-reverse ms-auto rounded-s-xl sm:rounded-s-none p-4 bg-[#65459C] max-w-[80%] sm:h-[75%] h-full sm:max-w-none sm:rounded-b-xl items-center gap-4 ">
+                    <div
+                        class="h-20 w-20 relative -left-14 sm:-left-0 sm:top-14 rounded-full overflow-hidden border-[2px] border-white ring-1 shrink-0 ring-[#2B345F]">
+                        <img src="{% static 'website/media/projects.jpeg' %}"
+                            class="h-full w-full object-cover object-center border-[1.5px] rounded-full border-[#65459C]" />
+                    </div>
+                    <div class="sm:relative sm:top-10">
+                        <h1 class="text-lg font-bold text-white">
+                            20+ Projects <br class="hidden sm:block"> Completed
+                        </h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative border sm:inline-block border-black rounded-xl overflow-hidden sm:w-52 h-32 sm:h-52">
+                <span class="absolute top-2 border border-white right-2 bg-black rounded-full h-4 w-4 z-10"></span>
+                <div
+                    class="flex sm:flex-col-reverse ms-auto rounded-s-xl sm:rounded-s-none p-4 bg-[#65459C] max-w-[80%] sm:h-[75%] h-full sm:max-w-none sm:rounded-b-xl items-center gap-4 ">
+                    <div
+                        class="h-20 w-20 relative -left-14 sm:-left-0 sm:top-14 rounded-full overflow-hidden border-[2px] border-white ring-1 shrink-0 ring-[#2B345F]">
+                        <img src="{% static 'website/media/members.jpeg' %}"
+                            class="h-full w-full object-cover object-center border-[1.5px] rounded-full border-[#65459C]" />
+                    </div>
+                    <div class="sm:relative sm:top-10">
+                        <h1 class="text-lg font-bold text-white">
+                            10+ Passionate <br class="hidden sm:block"> Members
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% include "website/components/testimonials.html" %}
+
+
+<div class="max-w-4xl mx-auto mt-20 px-4">
+    <div>
+        <a name="contact"></a>
+        <p class="text-3xl md:text-5xl font-medium leading-[28.5px] mt-4 text-center ts-headings">Contact Us</p>
+        <p class="text-center font-poppins pb-4 my-4 border-b-2 border-b-themeblue/50 ">
+            Please fill this form.
+        </p>
+    </div>
+
+    <div class="mt-8">
+        <form class="grid grid-cols-1 sm:grid-cols-2 gap-6" method="post" action="/">
+
+            {% csrf_token %}
+            {% for field in contact_form %}
+            <div class="{% if field.label == 'Message' %} sm:col-span-2 {% endif %} contact-form-input-wrapper">
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.errors }}
+            </div>
+            {% endfor %}
+
+            <div class="col-span-1 sm:col-span-2">
+                <input type="checkbox" id="consent" required />
+                <label for="consent" class="cursor-pointer">
+                    I hereby authorize JS Technova to contact me via telephone or email for callback purposes at the
+                    details
+                    provided.
+                </label>
+            </div>
+            <!-- Submit Button -->
+            <div class="sm:col-span-2 mt-2">
+                <button
+                    class="cursor-pointer shadow-xl shadow-[#00000040] py-3 px-12 w-full max-w-52 rounded-xl border hover:border-themeblue hover:bg-white hover:text-themeblue transition-all duration-300 ease-in border-black text-white bg-themeblue ">
+                    Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

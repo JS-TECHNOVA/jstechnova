@@ -1,0 +1,66 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="mt-16 px-[25px] lg:px-[50px]">
+    <div class="text-center">
+        <h3 class=" text-5xl uppercase text-themeblue font-squada ts-headings">What We've Built</h3>
+        <p class="mt-4 max-w-screen-xl mx-auto">
+            Our work reflects a passion for innovation and a commitment to delivering impactful solutions. Over the
+            years, we've
+            partnered with diverse clients to create tools, platforms, and experiences that solve unique challenges.
+            From designing
+            sleek user interfaces to developing scalable technologies, each project showcases our creativity and
+            expertise.
+            <br />
+            <br>
+            What we've built goes beyond products—it represents trust, collaboration, and meaningful results. Every
+            solution is
+            tailored to meet specific needs while exceeding expectations. Explore our portfolio to see how we turn ideas
+            into
+            reality and create value for our clients. Let's build something extraordinary together.
+        </p>
+    </div>
+</div>
+
+<div class="flex flex-col gap-20 mt-12 project-container">
+    {% for project in projects %}
+    <div class="bg-themeblue lg:py-20 text-white p-8 lg:px-12 projects">
+        <div class="flex flex-col-reverse gap-4 lg:gap-8 lg:flex-row">
+            <div class="w-full lg:w-1/2">
+                <h1 class="uppercase text-5xl font-squada hidden lg:block">{{project.name}}</h1>
+                <p class="text-2xl font-squada">Project Description</p>
+                <p class="font-inter mt-2">{{project.description}}</p>
+                {% if project.url %}
+                <a href="{{project.url}}">
+                    <button
+                        class="mt-8 py-2 w-40 rounded-xl border group  border-white inline-flex items-center justify-center ">
+                        View Project
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2"
+                            stroke="currentColor" class="h-6 w-0 group-hover:w-8 transition-all duration-150 ease-in">
+                            <path strokeLinecap="round" strokeLinejoin="round"
+                                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                        </svg>
+
+
+                    </button>
+                </a>
+                {% endif %}
+            </div>
+            <div class="w-full lg:w-1/2">
+                <h1 class="uppercase text-4xl font-squada lg:hidden">{{project.name}}</h1>
+                <div class="rounded-3xl overflow-hidden">
+                    <img src="{{ project.image.url }}" class="aspect-video object-cover" />
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+{% endblock %}

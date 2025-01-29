@@ -1,0 +1,85 @@
+{% extends "website/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="mt-12">
+    <div class="text-center">
+        <p class="text-base tracking-[5px] text-themeblue opacity-60 font-medium">
+            Feedback
+        </p>
+        <h1 class="text-2xl font-inter font-semibold tracking-[1px] mt-1">Write Your Feedback. It's means a lot to us.
+        </h1>
+    </div>
+
+    <div class="mx-8 md:max-w-md md:mx-auto mt-12">
+        <form method="post" action="#" class="flex flex-col gap-6">
+            {% csrf_token %}
+            <div>
+                <h1 class="text-center text-lg font-bold">How are you feeling?</h1>
+                <div class="flex items-center justify-evenly my-8">
+                    <input type="radio" id="bad" name="rating" value="bad" class="hidden peer/a" required />
+                    <input id="good" type="radio" name="rating" value="good" class="hidden peer/b" required checked />
+                    <input id="excellent" type="radio" name="rating" value="excellent" class="hidden peer/c" required />
+
+                    <label for="bad"
+                        class="inline-flex cursor-pointer grayscale peer-checked/a:grayscale-0 hover:bg-purple-300 peer-checked/a:ring-2 ring-offset-2 ring-purple-500 peer-checked/a:bg-purple-500 h-16 w-16 md:h-24 md:w-24 text-2xl flex-col items-center justify-center bg-purple-100 rounded-full">
+                        😡
+                        <span class="text-xs font-medium mt-1">Bad</span>
+                    </label>
+
+                    <label for="good"
+                        class="inline-flex cursor-pointer grayscale peer-checked/b:grayscale-0 hover:bg-purple-300 peer-checked/b:ring-2 ring-offset-2 ring-purple-500 peer-checked/b:bg-purple-500 h-16 w-16 md:h-24 md:w-24 text-2xl flex-col items-center justify-center bg-purple-100 rounded-full">
+                        😊
+                        <span class="text-xs font-medium mt-1">Good</span>
+                    </label>
+
+                    <label for="excellent"
+                        class="inline-flex cursor-pointer grayscale peer-checked/c:grayscale-0 hover:bg-purple-300 peer-checked/c:ring-2 ring-offset-2 ring-purple-500 peer-checked/c:bg-purple-500 h-16 w-16 md:h-24 md:w-24 text-2xl flex-col items-center justify-center bg-purple-100 rounded-full">
+                        😍
+                        <span class="text-xs font-medium mt-1 ">Ecellent</span>
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <label>Your Name</label>
+                <input type="text" value="{{name}}" name="name" class="contact-form-input" required />
+            </div>
+
+            <div>
+                <label>Your Email</label>
+                <input type="email" value="{{email}}" name="email" class="contact-form-input" required />
+            </div>
+
+            <div>
+                <label>What's in your mind regarding us</label>
+                <textarea type="text" name="message" class="contact-form-input" rows="4" required>{{message}}</textarea>
+            </div>
+
+            {% if error %}
+            <div class="bg-red-200 p-4  rounded-md">
+                <span class="text-red-500">{{error}}</span>
+            </div>
+            {% endif %}
+
+            <div class="text-left">
+                <button
+                    class="py-2 w-40 rounded-xl group bg-themeblue text-white inline-flex items-center justify-center ">
+                    Submit
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2"
+                        stroke="currentColor" class="h-6 w-0 group-hover:w-8 transition-all duration-150 ease-in">
+                        <path strokeLinecap="round" strokeLinejoin="round"
+                            d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                    </svg>
+
+
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+{% endblock %}

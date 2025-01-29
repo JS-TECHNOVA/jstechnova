@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind CSS Setup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    #cardsContainer,
+    .culture-cards-container {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    #cardsContainer::-webkit-scrollbar,
+    .culture-cards-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+
+      #cardsContainer {
+        scrollbar-width: thin;
+        scrollbar-color: #65459c #f2f2f2;
+      }
+
+      #cardsContainer::-webkit-scrollbar {
+        display: block;
+        height: 8px;
+      }
+
+      #cardsContainer::-webkit-scrollbar-thumb {
+        background-color: #65459c;
+        border-radius: 10px;
+      }
+
+      #cardsContainer::-webkit-scrollbar-track {
+        background-color: #f2f2f2;
+      }
+    }
+  </style>
+</head>
+
+<body class="">
+
+  <!-- Hero section with parallax -->
+  <div
+    class="relative mx-4 mt-20 sm:mx-7 md:mx-10 lg:mx-20 h-[30rem] md:h-[32rem] overflow-hidden rounded-md bg-fixed bg-cover bg-center"
+    style="background-image: url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+
+    <!-- overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+
+    <!-- content -->
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div
+        class="bg-white bg-opacity-75 text-black px-6 py-10 rounded-md flex flex-col justify-center items-center gap-4 mx-4 sm:mx-7 md:mx-5">
+        <h1 class="text-3xl sm:text-5xl font-bold tracking-widest">Join Our Team</h1>
+        <p class="sm:text-lg">Be a part of a dynamic and innovative team that's redefining the tech landscape.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-4 mt-14 mb-14 md:mt-20 sm:mx-7 md:mx-10 lg:mx-20 flex flex-col gap-10">
+
+    <!-- CURRENT OPENING  -->
+    <div class="horizontal-container">
+      <h2 class="text-[1.7rem] sm:text-3xl font-semibold mb-5">Current Openings</h2>
+
+      <!-- Horizontal container -->
+      <div class="relative">
+        <!-- Scrollable cards container -->
+        <div id="cardsContainer"
+          class="cards-container flex gap-8 px-1 md:px-6 pb-7 pt-4 md:pt-6 overflow-x-auto scroll-smooth">
+          <!-- Card 1 -->
+          <div
+            class="min-w-[18rem] sm:min-w-[20rem] md:min-w-[26rem] bg-white rounded-lg p-5 flex flex-col justify-between shadow-[0_8px_10px_rgb(0,0,0,0.12)]">
+            <h3 class="text-2xl font-bold">Front End Developer</h3>
+            <p class="mt-3 text-gray-800 w-[90%]">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est
+              consequatur
+              ducimus porro, ipsum dolor sit.</p>
+            <div class="flex-grow"></div> <!-- spacer to push button to bottom -->
+            <button class="mt-5 w-fit bg-[#65459c] text-white px-4 py-2 rounded-lg hover:bg-[#5e3c99]">
+              Apply Now
+            </button>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="min-w-[18rem] sm:min-w-[20rem] md:min-w-[26rem] bg-white rounded-lg p-5 flex flex-col justify-between shadow-[0_8px_10px_rgb(0,0,0,0.12)]">
+            <h3 class="text-2xl font-bold">Back End Developer</h3>
+            <p class="mt-3 text-gray-800">Lorem ipsum dolor sit, amet consectetur em ipsum dolor sit, amet consectetur
+              adipisicing elit. Est consequatur
+              ducimus porro.</p>
+            <div class="flex-grow"></div>
+            <button class="mt-5 w-fit bg-[#65459c] text-white px-4 py-2 rounded-lg hover:bg-[#5e3c99]">
+              Apply Now
+            </button>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="min-w-[18rem] sm:min-w-[20rem] md:min-w-[26rem] bg-white rounded-lg p-5 flex flex-col justify-between shadow-[0_8px_10px_rgb(0,0,0,0.12)]">
+            <h3 class="text-2xl font-bold">UX/UI Designer</h3>
+            <p class="mt-3 text-gray-800">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est consequatur
+              ducimus porro.</p>
+            <div class="flex-grow"></div>
+            <button class="mt-5 w-fit bg-[#65459c] text-white px-4 py-2 rounded-lg hover:bg-[#5e3c99]">
+              Apply Now
+            </button>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="min-w-[18rem] sm:min-w-[20rem] md:min-w-[26rem] bg-white rounded-lg p-5 flex flex-col justify-between shadow-[0_8px_10px_rgb(0,0,0,0.12)]">
+            <h3 class="text-2xl font-bold">Python Developer</h3>
+            <p class="mt-3 text-gray-800">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est consequatur
+              ducimus porro.</p>
+            <div class="flex-grow"></div>
+            <button class="mt-5 w-fit bg-[#65459c] text-white px-4 py-2 rounded-lg hover:bg-[#5e3c99]">
+              Apply Now
+            </button>
+          </div>
+
+          <!-- Card 5 -->
+          <div
+            class="min-w-[18rem] sm:min-w-[20rem] md:min-w-[26rem] bg-white rounded-lg p-5 flex flex-col justify-between shadow-[0_8px_10px_rgb(0,0,0,0.12)]">
+            <h3 class="text-2xl font-bold">Android Developer</h3>
+            <p class="mt-3 text-gray-800">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est consequatur
+              ducimus porro.</p>
+            <div class="flex-grow"></div>
+            <button class="mt-5 w-fit bg-[#65459c] text-white px-4 py-2 rounded-lg hover:bg-[#5e3c99]">
+              Apply Now
+            </button>
+          </div>
+
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button id="prevBtn"
+          class="prev-btn absolute hidden md:block top-1/2 -left-10 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full opacity-50 hover:opacity-100 disabled:opacity-20"
+          disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21 16.811c0 .864-.933 1.406-1.683.977l-7.108-4.061a1.125 1.125 0 0 1 0-1.954l7.108-4.061A1.125 1.125 0 0 1 21 8.689v8.122ZM11.25 16.811c0 .864-.933 1.406-1.683.977l-7.108-4.061a1.125 1.125 0 0 1 0-1.954l7.108-4.061a1.125 1.125 0 0 1 1.683.977v8.122Z" />
+          </svg>
+        </button>
+        <button id="nextBtn"
+          class="next-btn absolute hidden md:block top-1/2 -right-10 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full opacity-50 hover:opacity-100">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811V8.69ZM12.75 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061a1.125 1.125 0 0 1-1.683-.977V8.69Z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- INTERNSHIP OPPORTUNITIES  -->
+    <div class="horizontal-container">
+      <h2 class="text-[1.7rem] sm:text-3xl font-semibold mb-5">Internship Opportunities</h2>
+
+      <!-- Horizontal container -->
+      <div class="relative">
+        <!-- Scrollable cards container -->
+        <div id="cardsContainer"
+          class="cards-container flex gap-8 px-1 md:px-6 pb-7 pt-4 md:pt-6 overflow-x-auto scroll-smooth">
+          <!-- Card 1 -->
+          <div
+            class="min-w-[18rem] sm:min-w-[20rem] md:min-w-[26rem] bg-white rounded-lg p-5 flex flex-col justify-between shadow-[0_8px_10px_rgb(0,0,0,0.12)]">
+            <h3 class="text-2xl font-bold">Front-End Intern</h3>
+            <p class="mt-3 text-gray-800 w-[90%]">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est
+              consequatur
+              ducimus porro, ipsum dolor sit.</p>
+            <div class="flex-grow"></div> <!-- spacer to push button to bottom -->
+            <button class="mt-5 w-fit bg-[#65459c] text-white px-4 py-2 rounded-lg hover:bg-[#5e3c99]">
+              Apply Now
+            </button>
+          </div>
+
+
+          <!-- Card 4 -->
+          <div
+            class="min-w-[18rem] sm:min-w-[20rem] md:min-w-[26rem] bg-white rounded-lg p-5 flex flex-col justify-between shadow-[0_8px_10px_rgb(0,0,0,0.12)]">
+            <h3 class="text-2xl font-bold">Marketing Internship</h3>
+            <p class="mt-3 text-gray-800">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est consequatur
+              ducimus porro.</p>
+            <div class="flex-grow"></div>
+            <button class="mt-5 w-fit bg-[#65459c] text-white px-4 py-2 rounded-lg hover:bg-[#5e3c99]">
+              Apply Now
+            </button>
+          </div>
+
+          <!-- Card 5 -->
+          <div
+            class="min-w-[18rem] sm:min-w-[20rem] md:min-w-[26rem] bg-white rounded-lg p-5 flex flex-col justify-between shadow-[0_8px_10px_rgb(0,0,0,0.12)]">
+            <h3 class="text-2xl font-bold">Data Analyst</h3>
+            <p class="mt-3 text-gray-800">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est consequatur
+              ducimus porro.</p>
+            <div class="flex-grow"></div>
+            <button class="mt-5 w-fit bg-[#65459c] text-white px-4 py-2 rounded-lg hover:bg-[#5e3c99]">
+              Apply Now
+            </button>
+          </div>
+
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button id="prevBtn"
+          class="prev-btn absolute hidden md:block top-1/2 -left-10 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full opacity-50 hover:opacity-100 disabled:opacity-20"
+          disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21 16.811c0 .864-.933 1.406-1.683.977l-7.108-4.061a1.125 1.125 0 0 1 0-1.954l7.108-4.061A1.125 1.125 0 0 1 21 8.689v8.122ZM11.25 16.811c0 .864-.933 1.406-1.683.977l-7.108-4.061a1.125 1.125 0 0 1 0-1.954l7.108-4.061a1.125 1.125 0 0 1 1.683.977v8.122Z" />
+          </svg>
+        </button>
+        <button id="nextBtn"
+          class="next-btn absolute hidden md:block top-1/2 -right-10 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full opacity-50 hover:opacity-100">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811V8.69ZM12.75 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061a1.125 1.125 0 0 1-1.683-.977V8.69Z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- OUR CULTURE  -->
+    <div class="culture-slider-container">
+      <h2 class="text-[1.7rem] sm:text-3xl font-semibold mb-5">Our Culture</h2>
+
+      <!-- Horizontal Container -->
+      <div class="relative md:w-[79%]">
+        <!-- Scrollable Cards Container -->
+        <div
+          class="culture-cards-container flex gap-8 px-4 md:px-6 md:px-2 pb-7 pt-4 md:pt-6 overflow-x-auto scroll-smooth">
+          <!-- Initial Cards -->
+          <div class="culture-card min-w-[20rem] max-h-[17rem] scale-105 bg-white rounded-lg overflow-hidden">
+            <img class="object-cover h-full"
+              src="https://images.pexels.com/photos/3153201/pexels-photo-3153201.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="Culture 1" />
+          </div>
+          <div class="culture-card min-w-[20rem] max-h-[17rem] scale-105 bg-white rounded-lg overflow-hidden">
+            <img class="object-cover h-full"
+              src="https://images.pexels.com/photos/3184424/pexels-photo-3184424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="Culture 1" />
+          </div>
+
+          <!-- Navigation Buttons -->
+          <button
+            class="culture-next-btn absolute hidden md:block top-1/2 -right-14 transform -translate-y-1/2 text-white p-3 rounded-full bg-[#65459c] hover:bg-[#5e3c99]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811V8.69ZM12.75 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061a1.125 1.125 0 0 1-1.683-.977V8.69Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS  -->
+    <div class="">
+      <h2 class="text-[1.7rem] sm:text-3xl font-semibold mb-5">Employee Testimonials</h2>
+
+      <!-- Testimonials Grid Container -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-7 py-5">
+        <!-- Testimonial 1 -->
+        <div class="bg-[#e6e1f1] shadow-lg rounded-lg p-8">
+          <p class="text-gray-900">"Working with the company has been a remarkable experience. The culture is dynamic,
+            and the projects are both challenging and rewarding."</p>
+          <p class="mt-3 text-gray-500">- Alex Jonethen, Frontend Developer</p>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-[#e6e1f1] shadow-lg rounded-lg p-8">
+          <p class="text-gray-900">"I appreciate the collaborative environment here. Everyone is eager to share
+            knowledge and support each other."</p>
+          <p class="mt-3 text-gray-500">- Sarah Smith, UX Designer</p>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-[#e6e1f1] shadow-lg rounded-lg p-8">
+          <p class="text-gray-900">"The opportunities for growth and learning are unparalleled. I love being a part of
+            this innovative team."</p>
+          <p class="mt-3 text-gray-500">- Mark Johnson, Backend Developer</p>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="bg-[#e6e1f1] shadow-lg rounded-lg p-8">
+          <p class="text-gray-900">"I find the work-life balance here to be exceptional. The management truly cares
+            about employee well-being."</p>
+          <p class="mt-3 text-gray-500">- Emily Davis, Product Manager</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- ----------------JS Script-------------------------------- -->
+
+    <!-- // Opportunities  -->
+    <script>
+
+      const horizontalContainers = document.querySelectorAll('.horizontal-container');
+
+      horizontalContainers.forEach(container => {
+        const cardsContainer = container.querySelector('.cards-container');
+        const prevBtn = container.querySelector('.prev-btn');
+        const nextBtn = container.querySelector('.next-btn');
+        const scrollAmount = 500; // Adjust based on card width + gap
+
+        function updateButtons() {
+          prevBtn.disabled = cardsContainer.scrollLeft === 0;
+          nextBtn.disabled = cardsContainer.scrollLeft + cardsContainer.clientWidth >= cardsContainer.scrollWidth;
+        }
+
+        nextBtn.addEventListener('click', () => {
+          cardsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          setTimeout(updateButtons, 300); // Slight delay for smooth animation
+        });
+
+        prevBtn.addEventListener('click', () => {
+          cardsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+          setTimeout(updateButtons, 300); // Slight delay for smooth animation
+        });
+
+        cardsContainer.addEventListener('scroll', updateButtons);
+
+        // Initialize button states on page load
+        updateButtons();
+      });
+    </script>
+
+    <!-- // Our culture  -->
+    <script>
+      const cultureCardsContainer = document.querySelector('.culture-cards-container');
+      const cultureNextBtn = document.querySelector('.culture-next-btn');
+      const dots = document.querySelectorAll('.culture-dots-container .dot');
+
+      // Sample images for dynamic card generation
+      const sampleImages = [
+        "https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/2422290/pexels-photo-2422290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ];
+
+      // Scroll amount (adjust to match card width + gap)
+      const scrollAmount = 500;
+
+      // Function to create and return a new card
+      function createNewCard() {
+        const newCard = document.createElement('div');
+        newCard.className = 'culture-card min-w-[20rem] max-h-[17rem]  scale-105 bg-white rounded-lg overflow-hidden';
+        const randomImage = sampleImages[Math.floor(Math.random() * sampleImages.length)];
+        newCard.innerHTML = `<img class="object-cover h-full" src="${randomImage}" alt="Culture Image" />`;
+        return newCard;
+      }
+
+      // Function to pre-load new cards (ensures there's always content available)
+      function preloadCards() {
+        const currentWidth = cultureCardsContainer.scrollWidth;
+        const visibleWidth = cultureCardsContainer.clientWidth;
+
+        // If the remaining scrollable distance is less than 2 card widths, preload more cards
+        if (currentWidth - cultureCardsContainer.scrollLeft <= 2 * scrollAmount + visibleWidth) {
+          const newCard = createNewCard();
+          cultureCardsContainer.appendChild(newCard);
+        }
+      }
+
+      // Add click listener for "Next" button
+      cultureNextBtn.addEventListener('click', () => {
+        cultureCardsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+
+        // Preload new cards when scrolling
+        preloadCards();
+      });
+
+      // Handle dynamic dots update
+      function updateDots() {
+        const visibleIndex = Math.floor(cultureCardsContainer.scrollLeft / scrollAmount);
+        dots.forEach((dot, index) => {
+          dot.style.backgroundColor = index === visibleIndex ? '#65459c' : 'gray';
+        });
+      }
+
+      // Attach scroll event listener for infinite preloading and dot updates
+      cultureCardsContainer.addEventListener('scroll', () => {
+        preloadCards(); // Preload more content during scroll
+        updateDots(); // Update dots dynamically
+      });
+
+      // Initial preload for seamless scrolling experience
+      preloadCards();
+    </script>
+
+
+</body>
+
+
+
+
+</html>

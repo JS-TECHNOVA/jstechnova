@@ -1,0 +1,31 @@
+{% extends "website/base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if error %}
+<div class="container h-[500px] grid place-content-center">
+    <p class="font-medium text-2xl">OOPS! We could not find what you looking for.</p>
+</div>
+
+
+{% else %}
+<div class="container mt-12">
+    <div class="text-center">
+        <h1 class="text-4xl ts-headings font-semibold tracking-[1px] mt-1">{{blog.title}}</h1>
+        <p class="text-sm font-inter mt-3">{{blog.author}} | {{blog.created_at}}</p>
+    </div>
+
+    <div class="mt-12 max-w-5xl mx-auto">
+        <div>
+            <img src="{{blog.image.url}}" class="aspect-video w-full" alt="{{blog.title}} image" />
+        </div>
+
+        <div class="blog-content mt-8">
+            {{content|safe}}
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% if testimonials %}
+<div class="mt-20 max-w-4xl mx-auto sm:px-4 px-0">
+    <a name="testimonials"></a>
+    <div>
+        <p class="text-md font-medium text-themeblue tracking-[8px] text-center">TESTIMONIALS</p>
+        <p class="text-3xl md:text-5xl font-medium leading-[28.5px] mt-4 text-center ts-headings">What Clients say about
+            us</p>
+    </div>
+    <div class="grid grid-cols-1 gap-12 mt-20 md:grid-cols-2">
+
+        {% for testimonial in testimonials %}
+        <div class="border border-black/50 rounded-xl flex justify-between p-4 gap-16 items-start">
+            <div class="w-12 h-16 shrink-0 rounded-xl overflow-hidden ring ring-black/50 ring-offset">
+                <a href="{% if  testimonial.url %} {{ testimonial.url }} {% else %} /#testimonials {% endif %}"
+                    target="_blank">
+                    <img class="h-full w-full object-cover object-center" src="{{ testimonial.image.url }}"
+                        alt="Person 3">
+                </a>
+            </div>
+            <div class="flex grow flex-col justify-between h-full">
+                <p class="leading-relaxed font-medium">{{ testimonial.message }}</p>
+                <p class="text-sm opacity-70 uppercase tracking-wider mt-8">{{testimonial.name}}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endif %}

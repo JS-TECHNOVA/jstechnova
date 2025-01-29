@@ -1,0 +1,75 @@
+{% for message in messages %}
+<div id="popup" class="relative z-50 " aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-black/50 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+
+            <div
+                class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+
+                    <div class="sm:flex sm:items-start">
+                        <div class="mx-auto flex flex-shrink-0 items-center justify-center">
+                            {% if message.level == 20 %}
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                                stroke="currentColor" class="size-8 text-yellow-600">
+                                <path strokeLinecap="round" strokeLinejoin="round"
+                                    d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                            </svg>
+
+                            {% elif message.level == 25 %}
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                                stroke="currentColor" class="size-8 text-green-600">
+                                <path strokeLinecap="round" strokeLinejoin="round"
+                                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+
+                            {% elif message.level == 30 %}
+                            <svg class="size-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true" data-slot="icon">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                            </svg>
+                            {% else %}
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                                stroke="currentColor" class="size-8 text-red-600">
+                                <path strokeLinecap="round" strokeLinejoin="round"
+                                    d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+
+                            {% endif %}
+
+                        </div>
+
+                        <div class="mt-3 grow text-center sm:ml-4 sm:mt-0 sm:text-left">
+                            <h3 class="text-xl font-semibold leading-6" id="modal-title">
+                                {% if message.level == 20 %}
+                                <span class="text-yellow-500">Info</span>
+                                {% elif message.level == 25 %}
+                                <span class="text-green-500">Success</span>
+                                {% elif message.level == 30 %}
+                                <span class="text-red-500">Warning</span>
+                                {% else %}
+                                <span class="text-red-500">Error Occured</span>
+                                {% endif %}
+                            </h3>
+                            <div class="mt-2">
+                                <p class="text-sm">{{message}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <button type="button" onclick="HidePopUp()"
+                        class="inline-flex w-full max-w-28 justify-center rounded-md bg-purple-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-purple-500">Okay!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

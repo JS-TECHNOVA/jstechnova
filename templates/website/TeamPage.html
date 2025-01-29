@@ -1,0 +1,32 @@
+{% extends "website/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-12">
+    <div class="text-center">
+        <p class="text-base font-inter tracking-[5px] text-themeblue opacity-60 font-medium">
+            Team Section
+        </p>
+        <h1 class="text-4xl ts-headings font-semibold tracking-[1px] mt-1">Meet the Team</h1>
+        <p class="text-xs font-inter mt-3">Meet our dedicate team members to serve you</p>
+    </div>
+</div>
+
+<div class="container mt-12  flex flex-wrap items-start justify-center gap-16">
+    {% for team in teams %}
+    <div class="rounded-[31px] flex md:flex-col md:h-96 md:w-72 h-32 w-full border overflow-hidden border-black">
+        <div
+            class="w-20 h-20 md:w-40 md:h-40 relative left-10 md:left-0 md:top-20 m-auto rounded-full overflow-hidden  shrink-0">
+            <img src="{{team.image.url}}" class="h-full w-full object-cover object-center" />
+        </div>
+        <div
+            class="grow bg-[#5E4392] ps-16 md:ps-0 flex items-start text-white flex-col justify-center md:items-center">
+            <h2 class="text-xl md:text-2xl md:pt-10">{{team.name}}</h2>
+            <p class="text-sm">{{team.designation}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

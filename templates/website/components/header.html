@@ -1,0 +1,46 @@
+{% load static %}
+
+<div id="nav" class="bg-white sticky top-0 z-50 py-4">
+    <header class="container  flex items-center flex-col md:flex-row justify-between">
+        <div class="w-full flex items-center justify-between">
+
+            <div>
+                <a href="/">
+                    {% include "website/components/logo.html" %}
+                </a>
+            </div>
+
+            <div class="md:hidden">
+                <button class="focus:outline-none cursor-pointer flex items-center flex-col gap-1 justify-center px-2"
+                    id="menu-navigation-btn">
+                    <span class="w-6 h-1 rounded-xl bg-black"></span>
+                    <span class="w-6 h-1 rounded-xl bg-black"></span>
+                    <span class="w-6 h-1 rounded-xl bg-black "></span>
+                </button>
+            </div>
+        </div>
+
+        <div id="menu-navigation" class="w-full md:w-auto md:block hidden transition-all duration-1000">
+            <div class=" p-8 md:p-0">
+                <ul class="flex flex-col md:flex-row gap-2">
+                    <li><a href="/blogs"
+                            class="block px-4 py-1 {% if 'blogs' in request.path %} nav-active {% endif %} rounded-xl hover:bg-themeblue hover:text-white border border-transparent transition-colors duration-300 hover:border-black ">Blogs</a>
+                    </li>
+                    <li><a href="/projects"
+                            class="block px-4 py-1 {% if 'projects' in request.path %} nav-active {% endif %} rounded-xl hover:bg-themeblue hover:text-white border border-transparent transition-colors duration-300 hover:border-black">Projects</a>
+                    </li>
+                    <li><a href="/#services"
+                            class="block px-4 py-1 {% if 'services' in request.path %} nav-active {% endif %} rounded-xl hover:bg-themeblue hover:text-white border border-transparent transition-colors duration-300 hover:border-black ">Services</a>
+                    </li>
+                    <li><a href="/events"
+                            class="block px-4 py-1 {% if 'events' in request.path %} nav-active {% endif %} rounded-xl hover:bg-themeblue hover:text-white border border-transparent transition-colors duration-300 hover:border-black">Events</a>
+                    </li>
+                    <li><a href="/#contact"
+                            class="block px-4 py-1 {% if 'contact' in request.path %} nav-active {% endif %} rounded-xl hover:bg-themeblue hover:text-white border border-transparent transition-colors duration-300 hover:border-black">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+</div>
