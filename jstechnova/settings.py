@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,9 +24,9 @@ SECRET_KEY = 'django-insecure--eh==qq=h^g-a+!l5$vse8&^!bjlv)3q-6tm62*#d%mh=!a!@t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["www.jstechnova.in", "jstechnova.in"]
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+
+ALLOWED_HOSTS = ["*"]
+# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -72,21 +72,10 @@ WSGI_APPLICATION = 'jstechnova.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "OPTIONS": {
-            "user":os.environ['DB_USER'],
-            "database": os.environ['DB_NAME'],
-            "password": os.environ['DB_PASS'],
-        },
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -113,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Kolkata'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -121,16 +110,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
+
 STATIC_URL = 'static/'
-STATIC_ROOT = "/home/azhm1wt0yj3c/public_html/static"
-MEDIA_URL = 'media/'
-MEDIA_ROOT =  "/home/azhm1wt0yj3c/public_html/media"
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
-
+MEDIA_URL = "files/"
 # MEDIA_ROOT = BASE_DIR
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
