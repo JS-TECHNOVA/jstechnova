@@ -28,7 +28,7 @@ urlpatterns = [
     path("careers/", views.CareersView.as_view(), name="careers"),
     path("team/", views.TeamView.as_view(), name="team"),
     path("events/", views.EventsView.as_view(), name="events"),
-    path("events/<slug:slug>/", views.EventsView.as_view(), name=""),
+    path("events/<slug:slug>/", views.EventsDetailedView.as_view(), name=""),
 
     path("sitemap.xml/",sitemap,{"sitemaps": all_sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
 ]

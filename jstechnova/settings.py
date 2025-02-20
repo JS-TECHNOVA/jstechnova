@@ -12,14 +12,17 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+# SECRET_KEY = "sdfads@#$%^&%ETRFDdfasda6"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -83,7 +86,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "OPTIONS": {
-            "user":os.environ['DB_USER'],
+            "user": os.environ['DB_USER'],
             "database": os.environ['DB_NAME'],
             "password": os.environ['DB_PASS'],
         },
@@ -124,7 +127,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = "/home/azhm1wt0yj3c/public_html/static"
 MEDIA_URL = 'media/'
-MEDIA_ROOT =  "/home/azhm1wt0yj3c/public_html/media"
+MEDIA_ROOT = "/home/azhm1wt0yj3c/public_html/media"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",

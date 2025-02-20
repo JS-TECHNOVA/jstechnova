@@ -11,7 +11,6 @@ from markdown import markdown
 class HomeView(View):
     template_name = "website/index.html"
 
-
     def get(self, request, *args, **kwargs):
         # messages.success(request, "asdfasd")
         return render(request, self.template_name, context=self.get_context_data())
@@ -113,21 +112,69 @@ class EventsView(View):
     def get(self, request, slug = None):
         context = {}
 
-        if not slug:
-            return render(request, "website/Events.html")
+        current_events = models.Events.objects.filter(
+            status = 'open'
+        )
+        
+        past_events = models.Events.objects.filter(
+            status = "closed"
+        )
 
-        form = forms.EventRegistrationForm()
-        return render(request, "website/event-detailed.html", {"form": form})
+        context["past_events"] = past_events
 
-    def post(self, request, slug=None):
+        if current_events.exists():
+            context["current_event"] = current_events[0]
+        else:
+            if past_events.exists():
+                context["current_event"] = past_events[0]
+
+        return render(request, "website/Events.html", context=context)
+
+class EventsDetailedView(View):
+    def get(self, request, slug):
+        event = models.Events.objects.filter(slug = slug)
+        if event.exists():
+
+            timeline = []
+            for x in event[0].timeline.split("||"):
+                timeline.append(markdown(x))
+            
+            context = {
+                "event": event[0],
+                "timeline": timeline,
+                "about": markdown( event[0].about_event ),
+            }
+            if event[0].status != 'closed':
+                context["form"]= forms.EventRegistrationForm()
+
+            return render(request, "website/event-detailed.html", context= context)
+        else:
+            return redirect("events")
+    
+    def post(self, request, slug):
         form = forms.EventRegistrationForm(request.POST)
+        event = models.Events.objects.filter(slug = slug)
+        
         if form.is_valid():
             form.save()
             messages.success(request, "You entry has been registered. Stay tuned for further updates!")
             return redirect(request.META.get("HTTP_REFERER"))
         else:
             messages.error(request, form.errors)
-        return render(request, "website/event-detailed.html", {"form": form})
+            
+            timeline = []
+            for x in event[0].timeline.split("||"):
+                timeline.append(markdown(x))
+
+            context = {
+                "form": form,   
+                "event": event[0],
+                "timeline": timeline,
+                "about": markdown( event[0].about_event ),
+            }
+            
+            return render(request, "website/event-detailed.html", context=context)
+
 
 class CareersView(View):
 

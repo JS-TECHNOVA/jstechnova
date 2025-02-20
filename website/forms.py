@@ -32,6 +32,7 @@ class ContactUsForm(forms.Form):
 
 
 class EventRegistrationForm(forms.ModelForm):
+
     class Meta:
         model = models.EventRegistrations
         fields = "__all__"

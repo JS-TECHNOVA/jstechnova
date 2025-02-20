@@ -19,7 +19,7 @@ def exportEventRegistration(modeladmin, req, queryset):
 
     response = HttpResponse(
         content_type="text/csv",
-        headers={"Content-Disposition": 'attachment; filename="rgistrations.csv"'},
+        headers={"Content-Disposition": 'attachment; filename="rgistrations-data.csv"'},
     )
     writer = csv.writer(response)
     writer.writerow(["Name", "Email", "Phone", "College name", "Occupation", "Address"])
@@ -36,6 +36,8 @@ class EventAdmin(admin.ModelAdmin):
     ordering = ("name",)
     list_display = ("name", "email","phone", "occupation", "college_name")
     actions = (exportEventRegistration, )
+    list_filter = ["event"]
+
 admin.site.register(models.EventRegistrations, EventAdmin)
 
 
@@ -52,10 +54,6 @@ admin.site.register(models.Team)
 @admin.action(description="Mark selected blogs as published")
 def publishblog(modeladmin, request, queryset):
     queryset.update(status="published")
-
-
-
-
 
 class BlogsAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title", "author")}

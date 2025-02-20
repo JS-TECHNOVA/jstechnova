@@ -128,19 +128,27 @@ class Events(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     title = models.CharField(max_length=200)
+    description = models.TextField(null=True, blank=True, max_length = 1000)
     image = models.ImageField(upload_to="uploads/blogs")
     event_date =  models.DateField()
+    # youtube_link
+    yt_link = models.URLField(null=True, blank=True)
 
-    about_event = models.TextField(max_length=20000)
+    about_event = models.TextField(max_length=15000)
 
-    mode = models.TextField(max_length=50,choices=[("o","Online"), ("f", ("Offline"))])
+    mode = models.TextField(max_length=50,choices=[("Online","Online"), ("Offline", ("Offline"))])
 
+    timeline = models.TextField(max_length=10000, null=True, blank=True)
+
+    seats = models.IntegerField(default=0)
+
+    #speaker details
     speaker = models.CharField(max_length= 100)
+    speaker_designation = models.CharField(max_length=100, default="")
     about_speaker = models.CharField(max_length=300)
+    speaker_photo = models.ImageField(upload_to="uploads/speakers", null=True, blank=True)
 
     slug = models.SlugField(max_length = 250, null = True, blank = True)
-
-    schedule =  models.CharField(max_length=3000)
 
     status = models.CharField(max_length = 10, choices = EVENT_STATUS, 
                                                     default ='upcoming') 
@@ -158,7 +166,8 @@ class EventRegistrations(models.Model):
     occupation = models.CharField(max_length=100)
     college_name = models.CharField(verbose_name="College name if you are a student", max_length=200)
     addres = models.CharField(max_length=300, verbose_name="Address")
-
+    
+    event = models.ForeignKey(Events, on_delete=models.SET_NULL, null=True, blank=True)
     
 
     def __str__(self):

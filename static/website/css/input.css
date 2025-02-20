@@ -99,3 +99,18 @@ div.projects:nth-child(even) {
 	margin-inline-start: 80px;
 	border-radius:50px 0 0 50px;
 }
+
+.event-about h1, 
+.schedule-container .schedule h1{
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--color-themeblue);
+}
+.event-about h2, h3, h4, h5{
+	font-weight: 500;
+	font-size: 1.3rem;
+}
+.event-about ul{
+	list-style-type: circle;
+	list-style-position: inside;
+}

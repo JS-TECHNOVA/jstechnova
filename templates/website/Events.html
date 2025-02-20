@@ -5,36 +5,31 @@
 
 <div class="mt-12 container">
     <div class="rounded-3xl overflow-hidden h-svh relative">
-        <img class="aspect-auto h-full w-full" src="{% static 'website/media/g.jpeg' %}" />
+        <img class="aspect-auto h-full w-full" src="{{current_event.image.url}}" />
 
         <div
             class="absolute top-5 lg:top-10 lg:right-10 lg:bottom-10 right-5 bottom-5 left-5 border backdrop-brightness-105 border-white rounded-3xl w-auto lg:w-1/3 lg:left-[unset] z-10 p-8 backdrop-blur-2xl text-white">
             <div class="flex h-full justify-around flex-col">
                 <div>
-                    <h1 class="text-4xl lg:text-5xl font-squada">Data Science<br> Workshop</h1>
+                    <h1 class="text-4xl lg:text-5xl font-squada">{{current_event.title}}</h1>
 
-                    <p class="mt-2 font-inter">
-                        This event is an excellent opportunity for students, developers, and AI enthusiasts to learn
-                        from an expert and explore
-                        the future of AI in enterprise solutions. Don't miss out on this chance to gain valuable
-                        knowledge and network with
-                        like-minded professionals!
-                    </p>
+                    <p class="mt-2 font-inter">{{current_event.description}}</p>
                 </div>
                 <div class="text-lg font-inter">
-                    <p>📌&nbsp;&nbsp;Online</p>
-                    <p>📅&nbsp;&nbsp;16<sup>th</sup> February, 2025</p>
+                    <p>📌&nbsp;&nbsp; {{current_event.mode}}</p>
+                    <p>📅&nbsp;&nbsp; {{current_event.event_date}}</p>
                 </div>
 
-
                 <div class="flex gap-4 flex-wrap">
-                    <!-- <button
-                        class="py-2 grow rounded-full group border-2 border-themeblue text-white inline-flex items-center justify-center ">
-                        Registration Closed
-                    </button> -->
+                    {% if current_event.status == 'closed' %}
                     <button
                         class="py-2 grow rounded-full group border-2 border-themeblue text-white inline-flex items-center justify-center ">
-                        <a href="/events/data-science" class="block">
+                        Registration Closed
+                    </button>
+                    {% else %}
+                    <button
+                        class="py-2 grow rounded-full group border-2 border-themeblue text-white inline-flex items-center justify-center ">
+                        <a href="/events/{{current_event.slug}}" class="block">
                             Learn more
                         </a>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2"
@@ -46,7 +41,7 @@
 
                     <button
                         class="py-2 grow rounded-full group bg-themeblue text-white inline-flex items-center justify-center ">
-                        <a href="/events/data-science#register-now">
+                        <a href="/events/{{current_event.slug}}/#register-now">
                             Register Now
                         </a>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2"
@@ -55,6 +50,7 @@
                                 d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
                         </svg>
                     </button>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -71,15 +67,37 @@
 
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <!-- <div class="rounded-3xl overflow-hidden relative">
-            <img class="h-full w-full object-cover object-center aspect-3/2"
-                src="{% static 'website/media/g.jpeg' %}" />
-            <p
-                class="absolute bottom-0 left-0 right-0 p-6 text-center font-2xl font-medium z-10 bg-themeblue text-white">
-                sdjfkla sjdjasdf;</p>
-        </div> -->
+        {% if past_events %}
+            {% for events in past_events %}
+                <div>
+                    <div class="rounded overflow-hidden relative">
+                        <img class="h-full w-full object-cover object-center aspect-video"
+                            src="{{events.image.url}}" />
+                        <span class="absolute right-4 top-4 rounded-full bg-themeblue text-white px-4 py-0.5">{{events.event_date}}</span>
+                    </div>
+                    <div class="mt-1">
+                        <h3 class="text-2xl font-bold">
+                            <a href="/events/{{events.slug}}" class="hover:text-themeblue">{{events.title}}</a>
+                        </h3>
+                        <p>{{events.description}}</p>
 
+                        <div class="mt-8 flex items-center gap-2">
+                            <div class="overflow-hidden w-16 rounded">
+                                <img class="h-full w-full object-contain object-center"
+                                    src="{{events.speaker_photo.url}}" />
+                            </div>
+                            <div class="">
+                                <p class="opacity-50 text-xs">Speaker</p>
+                                <p class="font-medium text-lg">{{events.speaker}}</p>
+                                <p class="text-sm">{{events.speaker_designation}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
         <p class=" opacity-50">Ne event history found!</p>
+        {% endif %}
     </div>
 
 </div>
