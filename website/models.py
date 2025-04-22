@@ -99,28 +99,28 @@ STATUS_CHOICES = (
 ('published', 'Published'), 
 ) 
 
-# class Blogs(models.Model):
-#     created_at = models.DateTimeField(auto_now_add=True)
-#     title = models.CharField(max_length=200)
-#     image = models.ImageField(upload_to="uploads/blogs")
-#     content = models.TextField()
-#     author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+class Blogs(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to="uploads/blogs")
+    content = models.TextField()
+    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
 
-#     slug = models.SlugField(max_length = 250, null = True, blank = True) 
-#     updated = models.DateTimeField(auto_now = True) 
+    slug = models.SlugField(max_length = 250, null = True, blank = True) 
+    updated = models.DateTimeField(auto_now = True) 
 
-#     status = models.CharField(max_length = 10, choices = STATUS_CHOICES, 
-#                                                     default ='draft') 
-#     def __str__(self):
-#         return self.title
+    status = models.CharField(max_length = 10, choices = STATUS_CHOICES, 
+                                                    default ='draft') 
+    def __str__(self):
+        return self.title
     
-#     def save(self, *args, **kwargs):
-#         if not self.slug:
-#             self.slug = slugify(self.title)
-#         super().save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
-#     def get_absolute_url(self):
-#         return f"/blogs/{self.slug}/"
+    def get_absolute_url(self):
+        return f"/blogs/{self.slug}/"
     
 
 

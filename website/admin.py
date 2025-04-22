@@ -80,4 +80,4 @@ class BlogsAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     actions = (publishblog, )
     
-# admin.site.register(models.Blogs, BlogsAdmin)
+admin.site.register(models.Blogs, BlogsAdmin)
