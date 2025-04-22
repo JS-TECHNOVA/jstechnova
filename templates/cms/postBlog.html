@@ -1,0 +1,67 @@
+{% extends "cms/blogsLayout.html" %}
+
+{% block blog_outlet %}
+<h1 class="text-2xl font-medium mb-2">Write Your Blog</h1>
+<form class="flex flex-col gap-4" method="post" action="#" id="blog-form" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label>
+        <span>Blog Title</span>
+        <input type="text" name="title" placeholder="Blog title" required />
+    </label>
+
+    <label>
+        <span>Image</span>
+        <input type="file" name="image" accept="image/png, image/jpeg, image/jpg" placeholder="image" required />
+    </label>
+
+    <label>
+        <span>Status</span>
+        <select name="status" required>
+            <option value="draft">Draft</option>
+            <option value="published">Publish</option>
+        </select>
+    </label>
+
+    <div>
+        <span>Content</span>
+        <input type="text" name="blog-content" id="blog-content" hidden />
+        <div id="editor" class="w-full">
+            <p>Hello World!</p>
+            <p>Some initial <strong>bold</strong> text</p>
+        </div>
+    </div>
+
+    <div>
+        <button type="submit"
+            class="py-2 w-40 cursor-pointer rounded-xl group bg-themeblue text-white inline-flex items-center justify-center ">
+            Save
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2"
+                stroke="currentColor" class="h-6 w-0 group-hover:w-8 transition-all duration-150 ease-in">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+            </svg>
+        </button>
+    </div>
+</form>
+
+
+
+<script>
+    const quill = new Quill('#editor', {
+        modules: {
+            toolbar: [
+                ['bold', 'italic'],
+                ['link', 'blockquote', 'code-block', 'image'],
+                [{ list: 'ordered' }, { list: 'bullet' }],
+            ],
+        }, theme: 'snow'
+    });
+
+    document.querySelector("#blog-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        document.getElementById("blog-content").value = quill.getSemanticHTML();
+        e.target.submit();
+    });
+
+</script>
+{% endblock %}

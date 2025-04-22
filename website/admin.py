@@ -55,7 +55,29 @@ admin.site.register(models.Team)
 def publishblog(modeladmin, request, queryset):
     queryset.update(status="published")
 
+
+
+
+# from django import forms
+
+# class WYSIWYGWidget(forms.Textarea):
+#     class Media:
+#         css = {
+#             'all': ('https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.snow.css',)  # Add your editor's CSS
+#         }
+#         js = ('https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.min.js',)  # Add your editor's JS
+
+#     def __init__(self, attrs=None):
+#         default_attrs = {'class': 'wysiwyg-editor'}  # Add necessary classes
+#         if attrs:
+#             default_attrs.update(attrs)
+#         super().__init__(default_attrs)
+
+
+
+
 class BlogsAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("title", "author")}
+    prepopulated_fields = {"slug": ("title",)}
     actions = (publishblog, )
+    
 admin.site.register(models.Blogs, BlogsAdmin)

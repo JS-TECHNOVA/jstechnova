@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.utils.text import slugify
+
 
 # Create your models here.
 class Services(models.Model):
@@ -101,8 +104,8 @@ class Blogs(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to="uploads/blogs")
-    content = models.TextField(max_length=20000)
-    author = models.CharField(max_length= 100)
+    content = models.TextField()
+    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
 
     slug = models.SlugField(max_length = 250, null = True, blank = True) 
     updated = models.DateTimeField(auto_now = True) 
@@ -112,6 +115,10 @@ class Blogs(models.Model):
     def __str__(self):
         return self.title
     
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return f"/blogs/{self.slug}/"
@@ -123,6 +130,7 @@ EVENT_STATUS = [
     ("closed", "Not Taking Registrations"),
     ("upcoming", "Up Coming Event")
 ]
+
 class Events(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)

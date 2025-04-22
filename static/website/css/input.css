@@ -1,17 +1,19 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@source "../../../templates/";
+@config "../../../tailwind.config.js";
 
-
-
-@layer base{
-    *{
-        font-family:  "Poppins" sans-serif;
+@layer base {
+	* {
+		font-family: "Poppins" sans-serif;
 		scroll-behavior: smooth;
-    }
+	}
 }
+
 @theme {
-  --font-inter: "Inter", serif;
-	--color-themeblue:#65459C;
-	--font-racing:"Racing Sans One", serif;
+	--font-inter: "Inter", serif;
+	--color-themeblue: #65459c;
+	--font-racing: "Racing Sans One", serif;
 	--font-squada: "Squada One", serif;
 }
 
@@ -27,90 +29,99 @@
 }
 
 @layer utilities {
-    .container{
-        @apply max-w-[1440px] mx-auto px-4;
-    }
+	.container {
+		@apply max-w-[1440px] mx-auto px-4;
+	}
 
 	.FadeUp {
 		animation: fadeUp 200ms ease-in-out 1 forwards;
 	}
 
-	.nav-active{
+	.nav-active {
 		@apply bg-themeblue text-white;
 	}
-
-	
 }
-.ts-headings{
+.ts-headings {
 	text-shadow: 0px 7px 7.8px #00000040;
 }
 
-
-@layer components{
+@layer components {
 	.service-card {
 		@apply bg-white inline-flex flex-col items-center justify-evenly w-full p-8 rounded-xl shadow-xl shadow-[#0000001A];
-		
-		h1,h2,h3,h4,h5,h6{
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
 			@apply text-2xl font-medium text-themeblue mb-2;
 		}
-		.image-container{
-			@apply size-20
+		.image-container {
+			@apply size-20;
 		}
 	}
-	
-	.responsive-grid-3cols{
-		@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+
+	.responsive-grid-3cols {
+		@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4;
 	}
 }
 
 .services {
 	background: linear-gradient(48deg, #37436a, #65459c);
-	box-shadow: -9px 9px 11px #e3dbdb, 9px -9px 11px #ddd3d3,
-		inset 0px -3px 7px 0px #0000004a, inset 0px -13px 13px 0px #00000042,
-		inset 0px -30px 18px 0px #00000026, inset 0px -84px 24px 0px #0000000a,
+	box-shadow:
+		-9px 9px 11px #e3dbdb,
+		9px -9px 11px #ddd3d3,
+		inset 0px -3px 7px 0px #0000004a,
+		inset 0px -13px 13px 0px #00000042,
+		inset 0px -30px 18px 0px #00000026,
+		inset 0px -84px 24px 0px #0000000a,
 		inset -4px 33px 30.2px 0px #00000003;
 	max-width: 93%;
 	margin: 0 auto;
 }
 
-input:not([type="checkbox"] ),textarea, select{
+input:not([type="checkbox"], [type="radio"]),
+textarea,
+select {
 	@apply border border-black rounded-xl py-2 px-3 w-full focus:ring focus:ring-themeblue focus:border-transparent outline-0;
 }
-textarea{
+textarea {
 	@apply max-h-28;
 }
 
-.contact-form-input-wrapper label{
+.contact-form-input-wrapper label {
 	@apply block mb-1;
 }
 
-.errorlist{
+.errorlist {
 	color: red;
 }
 
-
-
 div.projects:nth-child(odd) {
 	margin-inline-end: 80px;
-	border-radius:0 50px 50px 0;
+	border-radius: 0 50px 50px 0;
 }
 
 div.projects:nth-child(even) {
 	margin-inline-start: 80px;
-	border-radius:50px 0 0 50px;
+	border-radius: 50px 0 0 50px;
 }
 
-.event-about h1, 
-.schedule-container .schedule h1{
+.event-about h1,
+.schedule-container .schedule h1 {
 	font-size: 1.5rem;
 	font-weight: 700;
 	color: var(--color-themeblue);
 }
-.event-about h2, h3, h4, h5{
+.event-about h2,
+h3,
+h4,
+h5 {
 	font-weight: 500;
 	font-size: 1.3rem;
 }
-.event-about ul{
+.event-about ul {
 	list-style-type: circle;
 	list-style-position: inside;
 }

@@ -1,0 +1,35 @@
+{% extends 'cms/MainLayout.html' %}
+{% load static %}
+
+{% block layout %}
+
+<div class="p-4">
+    <div class="">
+        <h1 class="font-squada text-5xl">Manage Blogs</h1>
+    </div>
+
+    <div class="flex space-x-4 my-8 border-b pb-4 border-b-themeblue">
+        <ul class="flex gap-4">
+            <li>
+                <a href="{% url 'post_blogs' %}"
+                    class="{% if 'post-blog' in request.path %} nav-active {% endif %} p-2 rounded-xl">Post
+                    Blog</a>
+            </li>
+            <li>
+                <a href="{% url 'user_blogs' %}"
+                    class="{% if 'myblogs' in request.path  %} nav-active {% endif %} p-2 rounded-xl">My
+                    Blogs</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="">
+        {% block blog_outlet %}
+        {% endblock %}
+    </div>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+<a href="/blogs/{{blog.slug}}" class="block group/blogs ">
+    <div
+        class="max-h-72 overflow-hidden mb-0.5 rounded-xl group-hover/blogs:shadow-lg group-hover/blogs:shadow-themeblue">
+        <img src="{{ blog.image.url }}"
+            class="size-full aspect-[5/3] object-center object-cover group-hover/blogs:scale-105 transition-transform duration-500"
+            alt="{{blog.title}}" />
+    </div>
+    <div>
+        <h1 class="text-xl font-medium font-inter">{{blog.title}}</h1>
+        <div class="mt-2 opacity-70">
+            <p class="uppercase text-sm font-medium">{{blog.author}}</p>
+            <p class="text-xs">{{blog.created_at}}</p>
+        </div>
+    </div>
+</a>

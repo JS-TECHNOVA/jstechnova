@@ -1,0 +1,22 @@
+{% extends "cms/blogsLayout.html" %}
+
+{% block blog_outlet %}
+
+<div class="responsive-grid-3cols">
+    {% for blog in blogs %}
+    <div>
+        {% include "website/components/Blogs.html" %}
+
+        <div class="mt-2">
+            <button
+                class="py-2 min-w-20 cursor-pointer rounded-xl group bg-themeblue text-white inline-flex items-center justify-center ">Edit</button>
+            <a href="{% url 'user_blogs' %}/delete/{{ blog.slug }}">
+                <button
+                    class="py-2 min-w-20 cursor-pointer rounded-xl group bg-rose-500 text-white inline-flex items-center justify-center ">Delete</button>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

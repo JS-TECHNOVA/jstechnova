@@ -67,7 +67,7 @@ class BlogView(View):
         
         blog = models.Blogs.objects.filter(slug__iexact=slug)
         if blog.exists():
-            context["content"] = self.markdown(blog[0].content)
+            context["content"] = blog[0].content
             context["blog"] = blog[0]
         else:
             context["error"] = True

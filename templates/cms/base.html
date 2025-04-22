@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS | JS TECHNOVA</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="description" content="JS Technova">
+  <meta name="author" content="JS Technova">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Racing+Sans+One&family=Squada+One&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="{% static 'website/media/LogoIcon.png' %}">
+  <link rel="stylesheet" href="{% static 'website/css/output.css' %}">
+  <link rel="stylesheet" href="{% static 'cms/css/quill2.css' %}">
+  <script type="text/javascript" src="{% static 'cms/js/quill2.js' %}"></script>
+  <script type="text/javascript" src="{% static 'cms/js/main.js' %}"></script>
+</head>
+
+<body>
+  {% block content %}
+  {% endblock %}
+</body>
+
+</html>

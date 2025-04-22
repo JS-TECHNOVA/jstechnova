@@ -15,22 +15,9 @@
 </div>
 
 <div class="container mt-12">
-    <div class=" mx-auto space-y-6 my-8 grid responsive-grid-3cols">
+    <div class="mx-auto space-y-6 my-8 grid responsive-grid-3cols gap-4">
         {% for blog in blogs %}
-        <div class="">
-            <div class="max-h-72 overflow-hidden mb-0.5 rounded-xl">
-                <img src="{{ blog.image.url }}" class="size-full object-center object-cover" alt="{{blog.title}}" />
-            </div>
-            <div>
-                <a href="/blogs/{{blog.slug}}">
-                    <h1 class="text-xl font-medium font-inter">{{blog.title}}</h1>
-                </a>
-                <div class="mt-2">
-                    <p class="uppercase">{{blog.author}}</p>
-                    <p class="text-xs">{{blog.created_at}}</p>
-                </div>
-            </div>
-        </div>
+        {% include "website/components/Blogs.html" %}
         {% endfor %}
     </div>
 
@@ -38,15 +25,13 @@
 
 
 <!-- video section  -->
-<div class="  mx-auto max-w-5xl mt-20">
-    <!-- <h2 class="text-2xl font-semibold font-poppins text-center mb-4">JS Technova Team Meeting </h2> -->
-    <div class="w-3/5 h-96 mx-auto my-shadow rounded-2xl overflow-hidden mt-8">
-        <iframe style="height: 100%; width: 100%;"
-            src="https://www.youtube-nocookie.com/embed/r5N11qXT10Y?si=_vJkPTbQdnKmsBGU" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
+<div class="mx-auto px-4 max-w-5xl mt-20">
+    <iframe 
+        class="h-full w-full aspect-video rounded-2xl"
+        src="https://www.youtube-nocookie.com/embed/r5N11qXT10Y?si=_vJkPTbQdnKmsBGU" title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
 
