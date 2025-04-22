@@ -100,12 +100,11 @@ STATUS_CHOICES = (
 ) 
 
 class Blogs(models.Model):
-
     created_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to="uploads/blogs")
     content = models.TextField()
-    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+    # author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
 
     slug = models.SlugField(max_length = 250, null = True, blank = True) 
     updated = models.DateTimeField(auto_now = True) 
