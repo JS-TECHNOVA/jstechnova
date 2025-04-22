@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
-SECRET_KEY = "sdfads@#$%^&%ETRFDdfasda6"
+SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+# SECRET_KEY = "sdfads@#$%^&%ETRFDdfasda6"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["www.jstechnova.in", "jstechnova.in", "*"]
+ALLOWED_HOSTS = ["www.jstechnova.in", "jstechnova.in"]
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
@@ -76,23 +76,23 @@ WSGI_APPLICATION = 'jstechnova.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "OPTIONS": {
-#             "user": os.environ['DB_USER'],
-#             "database": os.environ['DB_NAME'],
-#             "password": os.environ['DB_PASS'],
-#         },
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "OPTIONS": {
+            "user": os.environ['DB_USER'],
+            "database": os.environ['DB_NAME'],
+            "password": os.environ['DB_PASS'],
+        },
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
